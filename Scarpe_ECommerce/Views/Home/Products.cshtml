@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Scarpe_ECommerce.Models.Articolo>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>Products</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdArticolo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Img_Cover)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Img_1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Img_2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Obscured)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdArticolo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Img_Cover)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Img_1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Img_2)
+        </td>
+        <td>
+            @Html.CheckBoxFor(modelItem => item.Obscured)
+            @Html.ActionLink("Salva", "Obscure", new { id = item.IdArticolo }) |
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Modifica", "Edit", new { id=item.IdArticolo}) |
+            @Html.ActionLink("Dettagli", "Details", new { id = item.IdArticolo }) |
+            @Html.ActionLink("Cancella", "Delete", new { id = item.IdArticolo  })
+        </td>
+    </tr>
+}
+
+</table>

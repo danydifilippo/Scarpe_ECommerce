@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Scarpe_ECommerce.Models.Articolo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="container d-flex m-2 flex-wrap justify-content-center">
+
+        @ViewBag.MessageError
+
+    @foreach (var item in Model)
+    { @Html.HiddenFor(modelItem => item.IdArticolo)
+    <div class="card" style="width: 15rem;">
+        <img src="~/Content/img/@item.Img_Cover" class="card-img-top" alt=".Immagine Copertina">
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+            <p class="card-text">@Html.DisplayFor(modelItem => item.Price)</p>
+            <button class="btn btn-outline-primary text-decoration-none">@Html.ActionLink("Dettagli", "Details", new { id = item.IdArticolo })</button>
+        </div>
+    </div>
+    }
+
+            
+
+</div>
+
+      
+
+     
